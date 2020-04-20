@@ -12,8 +12,8 @@ const preventPwaInstallAndSavePrompt = () => {
       e.preventDefault();
       installEvent = e;
 
-      callbacks.forEach(cb);
-      callbacks = undefined;
+      callbacks.forEach((cb) => cb(e));
+      callbacks.slice(0, callbacks.length);
     },
     { once: true }
   );

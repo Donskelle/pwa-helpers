@@ -1,3 +1,3 @@
-import { idleFrameCallback, idleFrameCallback } from "./idleFrame";
+import { idleFrameCallback, idleFramePromise } from "./idleFrame";
 
-export { idleFrameCallback, idleFrameCallback };
+export { idleFrameCallback, idleFramePromise };

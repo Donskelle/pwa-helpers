@@ -1,5 +1,5 @@
 /**
- * Setups Listener for Service Worker Update. Calls given Callback
+ * Setups Listener for Service Worker Update
  * @param {function} cb with skipWaiting function as parameter. This functions sends
  * SKIP_WAITING Message to Service Worker to force skipWaiting execution in sw.
  * Reloads when cb calls first parameter and service worker has changed
@@ -14,7 +14,6 @@
 const updateFoundCallback = async (cb) => {
   let newWorker;
   let isReloading = false;
-
 
   const skipWaiting = () => {
     if (!newWorker) return;
@@ -49,6 +48,6 @@ const updateFoundCallback = async (cb) => {
       isReloading = true;
     });
   }
-}
+};
 
 export { updateFoundCallback };
