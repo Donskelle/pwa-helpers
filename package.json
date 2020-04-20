@@ -4,6 +4,7 @@
   "description": "git packages test",
   "module": "index.js",
   "scripts": {
+    "release": "npx release-it",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +19,13 @@
   "homepage": "https://github.com/Donskelle/pwa-helpers#readme",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
+  },
+  "devDependencies": {
+    "release-it": "^13.5.4"
+  },
+  "release-it": {
+    "github": {
+      "release": true
+    }
   }
 }
