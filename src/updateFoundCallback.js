@@ -1,7 +1,8 @@
 /**
  * Setups Listener for Service Worker Update. Calls given Callback
  * @param {function} cb with skipWaiting function as parameter. This functions sends
- * SKIP_WAITING Message to Service Worker to force skipWaiting execution
+ * SKIP_WAITING Message to Service Worker to force skipWaiting execution in sw.
+ * Reloads when cb calls first parameter and service worker has changed
  * Setup handler in service worker manually by adding:
  *  self.addEventListener("message", (event) => {
  *    if (event.data && event.data.type === "SKIP_WAITING") {
