@@ -2,10 +2,10 @@
   "name": "@donskelle/pwa-helpers",
   "version": "0.1.4",
   "description": "git packages test",
-  "module": "index.js",
+  "module": "src/index.js",
   "scripts": {
     "release": "npx release-it",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx jest"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "devDependencies": {
+    "jest": "^25.4.0",
     "release-it": "^13.5.4"
   },
   "release-it": {
