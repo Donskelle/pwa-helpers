@@ -1,4 +1,10 @@
-import { autoUpdateAndReload } from "./src/autoReloadOnUpdate";
-import { emptyFrameCallback, emptyFramePromise } from "./src/emptyFrame";
+import { preventedInstallCallback } from "./src/preventedInstallCallback";
+import { updateFoundCallback } from "./src/updateFoundCallback";
+import { freeFrameCallback, freeFramePromise } from "./src/freeFrame";
 
-export { autoUpdateAndReload, emptyFrameCallback, emptyFramePromise };
+export {
+  preventedInstallCallback,
+  updateFoundCallback,
+  freeFrameCallback,
+  freeFramePromise,
+};
