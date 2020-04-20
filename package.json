@@ -1,0 +1,22 @@
+{
+  "name": "@donskelle/pwa-helpers",
+  "version": "0.0.1",
+  "description": "git packages test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Donskelle/pwa-helpers.git"
+  },
+  "author": "Fabian Puszies",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Donskelle/pwa-helpers/issues"
+  },
+  "homepage": "https://github.com/Donskelle/pwa-helpers#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
+}
