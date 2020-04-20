@@ -2,7 +2,6 @@
   "name": "@donskelle/pwa-helpers",
   "version": "0.1.1",
   "description": "git packages test",
-  "main": "index.js",
   "module": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
