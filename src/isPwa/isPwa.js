@@ -2,9 +2,10 @@ let pwaStatus;
 
 /**
  * Check if app is started as pwa.
- * Use this function to reduce dom interactions, stay in js thread
- * and reduce state management
- * @returns {boolean}
+ * Use this function to:
+ * - Performance: reduce dom interactions
+ * - reduce state management
+ * @returns {boolean} isPwa
  */
 const isPwa = () => {
   if (typeof pwaStatus === 'undefined') {
