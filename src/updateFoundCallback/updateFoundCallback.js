@@ -17,19 +17,16 @@ const updateFoundCallback = async (cb) => {
 
   const skipWaiting = () => {
     if (!newWorker) return;
-    newWorker.postMessage({ type: "SKIP_WAITING" });
+    newWorker.postMessage({ type: 'SKIP_WAITING' });
   };
 
-  if ("serviceWorker" in navigator) {
+  if ('serviceWorker' in navigator) {
     const reg = await navigator.serviceWorker.getRegistration();
     if (reg) {
-      reg.addEventListener("updatefound", () => {
+      reg.addEventListener('updatefound', () => {
         newWorker = reg.installing;
-        newWorker.addEventListener("statechange", () => {
-          if (
-            newWorker.state === "installed" &&
-            navigator.serviceWorker.controller
-          ) {
+        newWorker.addEventListener('statechange', () => {
+          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
             cb(skipWaiting);
           }
         });
@@ -41,7 +38,7 @@ const updateFoundCallback = async (cb) => {
       }
     }
 
-    navigator.serviceWorker.addEventListener("controllerchange", () => {
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
       if (isReloading) return;
 
       window.location.reload();

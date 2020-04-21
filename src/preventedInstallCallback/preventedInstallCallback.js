@@ -7,7 +7,7 @@ let installEvent;
  */
 const preventPwaInstallAndSavePrompt = () => {
   window.addEventListener(
-    "beforeinstallprompt",
+    'beforeinstallprompt',
     (e) => {
       e.preventDefault();
       installEvent = e;

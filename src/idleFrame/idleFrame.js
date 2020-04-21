@@ -1,7 +1,5 @@
-const idleFrameCallback = (cb) =>
-  (window.requestIdleCallback || window.setTimeout)(cb);
+const idleFrameCallback = (cb) => (window.requestIdleCallback || window.setTimeout)(cb);
 
-const idleFramePromise = () =>
-  new Promise((resolve) => idleFrameCallback(resolve));
+const idleFramePromise = () => new Promise((resolve) => idleFrameCallback(resolve));
 
 export { idleFrameCallback, idleFramePromise };

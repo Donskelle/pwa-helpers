@@ -1,6 +1,6 @@
 import {
   preventPwaInstallAndSavePrompt,
   preventedInstallCallback,
-} from "./preventedInstallCallback";
+} from './preventedInstallCallback';
 
 export { preventPwaInstallAndSavePrompt, preventedInstallCallback };
