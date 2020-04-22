@@ -19,9 +19,6 @@
     "url": "https://github.com/Donskelle/pwa-helpers/issues"
   },
   "homepage": "https://github.com/Donskelle/pwa-helpers#readme",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
