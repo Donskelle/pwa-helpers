@@ -13,7 +13,7 @@ const isAbsoluteUrl = (href) => /^(?:[a-z]+:)?\/\//i.test(href);
  * @param {string} urlScope Optimal Eg. "google.de/pwa-sub-domainscope". Use url without protocol (www/https)
  * @returns {function} function to remove added Listener
  */
-const watchAnchorClick = (element = document.body, urlScope) => {
+const preventAnchorLeavingScopeClick = (element = document.body, urlScope) => {
   const isAnchorElement = ({ tagName }) => tagName === 'A';
   const hasHrefAbsoluteValue = ({ href }) => href && isAbsoluteUrl(href);
   const targetNotBlank = ({ target }) => !target || target !== '_blank';
@@ -38,4 +38,4 @@ const watchAnchorClick = (element = document.body, urlScope) => {
   return () => element.removeEventLister('click', checkAndPreventEvent);
 };
 
-export { watchAnchorClick };
+export { preventAnchorLeavingScopeClick };

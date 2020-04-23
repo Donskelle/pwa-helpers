@@ -4,7 +4,7 @@ import {
 } from './preventedInstallCallback';
 import { updateFoundCallback } from './updateFoundCallback';
 import { idleFrameCallback, idleFramePromise } from './idleFrame';
-import { watchAnchorClick } from './watchAnchorClick';
+import { preventAnchorLeavingScopeClick } from './preventAnchorLeavingScopeClick';
 import { isPwa } from './isPwa';
 
 export {
@@ -14,5 +14,5 @@ export {
   updateFoundCallback,
   idleFrameCallback,
   idleFramePromise,
-  watchAnchorClick,
+  preventAnchorLeavingScopeClick,
 };
