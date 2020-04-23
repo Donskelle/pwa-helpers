@@ -4,5 +4,5 @@ module.exports = {
     "**/__tests__/**/*.+(ts|tsx|js)",
     "**/?(*.)+(spec|test).+(ts|tsx|js)",
   ],
-  setupFiles: ["<rootDir>/config/jest.setup.js"],
+  setupFiles: ["<rootDir>/config/jest.test-setup.js"],
 };
