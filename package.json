@@ -24,6 +24,7 @@
   "homepage": "https://github.com/Donskelle/pwa-helpers#readme",
   "devDependencies": {
     "@release-it/conventional-changelog": "^1.1.2",
+    "auto-changelog": "^2.0.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-config-prettier": "^6.10.1",
@@ -39,6 +40,12 @@
     "pre-commit": "lint-staged"
   },
   "release-it": {
+    "hooks": {
+      "before:release": "npx auto-changelog -p"
+    },
+    "git": {
+      "changelog": "npx auto-changelog --stdout --commit-limit false --unreleased --template https://raw.githubusercontent.com/release-it/release-it/master/templates/changelog-compact.hbs"
+    },
     "github": {
       "release": true
     },
