@@ -6,7 +6,7 @@
  */
 const injectPwaStyles = () => {
   // body overscroll-behavior none
-  // context menu
-  // img overscroll-behavior none
+  // disable context menu
+  // blur none
 };
-export {};
+export { injectPwaStyles };
