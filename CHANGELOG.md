@@ -1,3 +1,5 @@
+- refactor: change text [`c91ca63`](https://github.com/Donskelle/pwa-helpers/commit/c91ca63f6b1811c207ba3960a3841e9674a913a8)
+
 ### Changelog
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
