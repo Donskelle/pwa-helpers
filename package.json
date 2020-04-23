@@ -1,6 +1,6 @@
 {
   "name": "@donskelle/pwa-helpers",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "git packages test",
   "module": "src/index.js",
   "scripts": {
