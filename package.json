@@ -35,6 +35,9 @@
     "release-it": "^13.5.4",
     "service-worker-mock": "^2.0.5"
   },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
   "release-it": {
     "github": {
       "release": true
