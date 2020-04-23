@@ -21,10 +21,10 @@ npm i @donskelle/pwa-helpers
 Lookup manifest properties [here](https://developer.mozilla.org/en-US/docs/Web/Manifest)
 
 Some examples of manifest:
-- Tinder (manifest.json)[https://tinder.com/manifest.json]
+
+- Tinder [manifest.json](https://tinder.com/manifest.json)
 - Spotify https://open.spotify.com/ Manifest is hashed so lookup by inspecting network tab
 - Alibaba https://www.alibaba.com/ Manifest is a/b tested. Lookup in network tab
-
 
 Ios doens't support that file. You need set additional meta tags in head.
 
