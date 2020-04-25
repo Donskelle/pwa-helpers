@@ -4,6 +4,7 @@
   "description": "git packages test",
   "module": "src/index.js",
   "scripts": {
+    "start": "npx es-dev-server --port 8080 --hostname 0.0.0.0 demo/index.html",
     "lint": "npx eslint src",
     "lint:fix": "npx prettier --write src && npx eslint --fix src",
     "release": "npx release-it",

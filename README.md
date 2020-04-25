@@ -18,7 +18,7 @@ npm i @donskelle/pwa-helpers
 
 #### Manifest
 
-Lookup manifest properties [here](https://developer.mozilla.org/en-US/docs/Web/Manifest)
+Lookup manifest properties [here](https://developer.mozilla.org/en-US/docs/Web/Manifest) or use this [generator](https://app-manifest.firebaseapp.com/)
 
 Some examples of manifest:
 

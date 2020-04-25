@@ -1,6 +1,7 @@
 import {
   preventPwaInstallAndSavePrompt,
-  preventedInstallCallback,
+  addInstallCallback,
+  removeInstallCallback,
 } from './preventedInstallCallback';
 import { updateFoundCallback } from './updateFoundCallback';
 import { idleFrameCallback, idleFramePromise } from './idleFrame';
@@ -10,7 +11,8 @@ import { isPwa } from './isPwa';
 export {
   isPwa,
   preventPwaInstallAndSavePrompt,
-  preventedInstallCallback,
+  addInstallCallback,
+  removeInstallCallback,
   updateFoundCallback,
   idleFrameCallback,
   idleFramePromise,

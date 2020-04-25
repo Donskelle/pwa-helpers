@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PWA test</title>
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="stylesheet" href="https://unpkg.com/98.css" />
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker
+            .register('./demo/sw.js')
+            .then(() => {
+              console.log('Service worker registered :-)');
+            })
+            .catch(() => {
+              console.log('Service worker not registered :-(');
+            });
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <pwa-install-button>
+      <button>
+        Install
+      </button>
+    </pwa-install-button>
+    <script src="./pwa-install.js" type="module"></script>
+    <script type="module">
+      import { preventPwaInstallAndSavePrompt } from 'https://unpkg.com/@donskelle/pwa-helpers/src/index.js?module';
+
+      preventPwaInstallAndSavePrompt();
+    </script>
+  </body>
+</html>
