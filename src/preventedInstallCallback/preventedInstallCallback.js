@@ -22,7 +22,7 @@ const proxyUserChoice = ({ userChoice }) => {
             }
             return userThenFunction(value);
           });
-        }.bind(target);
+        }; // .bind(target);
 
         return newThen;
       }
