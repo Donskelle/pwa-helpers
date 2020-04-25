@@ -3,9 +3,7 @@
     "browser": true
   },
   "extends": ["airbnb-base", "prettier"],
-  "plugins": ["prettier"],
   "rules": {
-    "prettier/prettier": "warn",
     "consistent-return": "off",
     "import/prefer-default-export": "off",
     "no-console": "off",

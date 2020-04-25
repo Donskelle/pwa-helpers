@@ -63,8 +63,7 @@
   "lint-staged": {
     "*.js": [
       "npx prettier --write",
-      "npx eslint --fix",
-      "git add"
+      "npx eslint --fix"
     ]
   }
 }
