@@ -31,14 +31,12 @@
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-prettier": "^3.1.3",
+    "husky": "^4.2.5",
     "jest": "^25.4.0",
     "lint-staged": "^10.1.6",
     "prettier": "^2.0.4",
     "release-it": "^13.5.4",
     "service-worker-mock": "^2.0.5"
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
   },
   "release-it": {
     "hooks": {
@@ -56,5 +54,13 @@
         "infile": "CHANGELOG.md"
       }
     }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [ "npx prettier --write", "npx eslint --fix", "git add"]
   }
 }
