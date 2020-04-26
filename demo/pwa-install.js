@@ -12,11 +12,12 @@ export class InstallPwaButton extends HTMLElement {
     super();
     state.set(this, { installEvent: null });
 
-    this.innerHTML = `<button>Install</button>`;
-    this.setAttribute('hidden', '');
+    const shadow = this.attachShadow({ mode: 'open' });
+    shadow.innerHTML = `<slot>Install</slot>`;
   }
 
   connectedCallback() {
+    this.setAttribute('hidden', '');
     this.addEventListener('click', this.onInstallClick);
 
     addInstallAvailableObserver((data) => this.updateLocalData(data));
@@ -41,7 +42,10 @@ export class InstallPwaButton extends HTMLElement {
     }
   }
 
-  async onInstallClick() {
+  async onInstallClick(e) {
+    if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'A') {
+      return;
+    }
     const { installEvent } = state.get(this);
 
     installEvent.prompt();
