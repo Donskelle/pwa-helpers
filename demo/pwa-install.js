@@ -1,6 +1,6 @@
-import { addInstallCallback } from 'https://unpkg.com/@donskelle/pwa-helpers/src/index.js?module';
+import { addInstallAvailableObserver, removeInstallAvailableObserver } from '../src/index';
 
-// hacky github way to handle instance state. Using current context as key
+// hacky github way to handle instance state. Using current InstallPwaButton instance (this) as key
 const state = new WeakMap();
 
 export class InstallPwaButton extends HTMLElement {
@@ -10,44 +10,45 @@ export class InstallPwaButton extends HTMLElement {
 
   constructor() {
     super();
-    console.log('constructor');
     state.set(this, { installEvent: null });
 
-    const shadow = this.attachShadow({ mode: 'open' });
-    shadow.innerHTML = `<slot><button>Install</button></slot>`;
+    this.innerHTML = `<button>Install</button>`;
     this.setAttribute('hidden', '');
   }
 
   connectedCallback() {
-    console.log('connectedCallback');
-
-    addInstallCallback((e) => {
-      console.log('preventedInstallCallback');
-      const localState = state.get(this);
-      if (!localState) return;
-      localState.installEvent = e;
-
-      this.removeAttribute('hidden');
-    });
-
     this.addEventListener('click', this.onInstallClick);
+
+    addInstallAvailableObserver((data) => this.updateLocalData(data));
   }
 
   disconnectedCallback() {
+    // no need to remove
+    this.removeEventListener('click', this.onInstallClick);
     const localState = state.get(this);
     localState.installEvent = null;
-    this.removeEventListener('click', this.onInstallClick);
+
+    removeInstallAvailableObserver((data) => this.updateLocalData(data));
   }
 
-  async onInstallClick(e) {
-    e.preventDefault();
+  updateLocalData(data) {
+    if (data) {
+      const localState = state.get(this);
+      localState.installEvent = data;
+      this.removeAttribute('hidden');
+    } else {
+      this.setAttribute('hidden', '');
+    }
+  }
+
+  async onInstallClick() {
     const { installEvent } = state.get(this);
 
     installEvent.prompt();
     const { outcome } = await installEvent.userChoice;
     if (outcome === 'accepted') {
-      alert('installing !');
-      this.setAttribute('hidden', '');
+      // this.setAttribute('hidden', '');
+      console.log();
     }
   }
 }

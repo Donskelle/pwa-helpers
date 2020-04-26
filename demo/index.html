@@ -10,7 +10,7 @@
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator.serviceWorker
-            .register('./demo/sw.js')
+            .register('./sw.js')
             .then(() => {
               console.log('Service worker registered :-)');
             })
@@ -20,18 +20,19 @@
         });
       }
     </script>
+    <style>
+      body {
+        background: #c0c0c0;
+      }
+    </style>
   </head>
   <body>
-    <pwa-install-button>
-      <button>
-        Install
-      </button>
-    </pwa-install-button>
+    <pwa-install-button> </pwa-install-button>
     <script src="./pwa-install.js" type="module"></script>
     <script type="module">
-      import { preventPwaInstallAndSavePrompt } from 'https://unpkg.com/@donskelle/pwa-helpers/src/index.js?module';
+      import { setupInstallListener } from '../src/index.js';
 
-      preventPwaInstallAndSavePrompt();
+      setupInstallListener();
     </script>
   </body>
 </html>

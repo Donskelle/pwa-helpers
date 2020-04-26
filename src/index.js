@@ -1,8 +1,8 @@
 import {
-  preventPwaInstallAndSavePrompt,
-  addInstallCallback,
-  removeInstallCallback,
-} from './preventedInstallCallback';
+  setupInstallListener,
+  addInstallAvailableObserver,
+  removeInstallAvailableObserver,
+} from './installAvailableObserver';
 import { updateFoundCallback } from './updateFoundCallback';
 import { idleFrameCallback, idleFramePromise } from './idleFrame';
 import { preventAnchorLeavingScopeClick } from './preventAnchorLeavingScopeClick';
@@ -10,9 +10,9 @@ import { isPwa } from './isPwa';
 
 export {
   isPwa,
-  preventPwaInstallAndSavePrompt,
-  addInstallCallback,
-  removeInstallCallback,
+  setupInstallListener,
+  addInstallAvailableObserver,
+  removeInstallAvailableObserver,
   updateFoundCallback,
   idleFrameCallback,
   idleFramePromise,
