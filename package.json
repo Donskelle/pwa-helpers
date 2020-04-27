@@ -27,7 +27,7 @@
   "homepage": "https://github.com/Donskelle/pwa-helpers#readme",
   "devDependencies": {
     "@release-it/conventional-changelog": "^1.1.2",
-    "@size-limit/preset-small-lib": "^4.4.5",
+    "@size-limit/preset-big-lib": "^4.4.5",
     "auto-changelog": "^2.0.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
@@ -68,11 +68,5 @@
       "npx prettier --write",
       "npx eslint --fix"
     ]
-  },
-  "size-limit": [
-    {
-      "limit": "4 KB",
-      "path": "src/index.js"
-    }
-  ]
+  }
 }
