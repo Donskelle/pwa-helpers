@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npx es-dev-server",
     "size": "npx size-limit",
+    "size-build": "echo 'no build'",
     "lint": "npx eslint src",
     "lint:fix": "npx prettier --write src && npx eslint --fix src",
     "release": "npx release-it",
