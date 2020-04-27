@@ -11,3 +11,144 @@ const idleFrameCallback = (cb) => (window.requestIdleCallback || window.setTimeo
 const idleFramePromise = () => new Promise((resolve) => idleFrameCallback(resolve));
 
 export { idleFrameCallback, idleFramePromise };
+
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
+/**
+ * Promise Version of idleFrameCallback
+ * just call: `await idleFrameCallback()` to wait for a free taskslist
+ */
