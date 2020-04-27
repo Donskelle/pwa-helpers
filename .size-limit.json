@@ -2,42 +2,42 @@
   {
     "name": "Complete Libary",
     "path": "src/index.js",
-    "limit": "500 ms"
+    "limit": "5 KB"
   },
   {
     "name": "Function isPwa",
     "path": "src/index.js",
     "import": "{ isPwa }",
-    "limit": "350 ms"
+    "limit": "1 KB"
   },
   {
     "name": "Function injectPwaStyles",
     "path": "src/index.js",
     "import": "{ injectPwaStyles }",
-    "limit": "350 ms"
+    "limit": "1 KB"
   },
   {
     "name": "Function updateFoundCallback",
     "path": "src/index.js",
     "import": "{ updateFoundCallback }",
-    "limit": "350 ms"
+    "limit": "1 KB"
   },
   {
     "name": "Functions idleFrame (idleFrameCallback, idleFramePromise)",
     "path": "src/index.js",
     "import": "{ idleFrameCallback, idleFramePromise }",
-    "limit": "350 ms"
+    "limit": "1 KB"
   },
   {
     "name": "Function preventAnchorLeavingScopeClick",
     "path": "src/index.js",
     "import": "{ preventAnchorLeavingScopeClick }",
-    "limit": "350 ms"
+    "limit": "1 KB"
   },
   {
     "name": "Functions installAvailableObserver",
     "path": "src/index.js",
     "import": "{ setupInstallListener, addInstallAvailableObserver, removeInstallAvailableObserver }",
-    "limit": "350 ms"
+    "limit": "1 KB"
   }
 ]
