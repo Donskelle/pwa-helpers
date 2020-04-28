@@ -1,6 +1,8 @@
 import { addInstallAvailableObserver, removeInstallAvailableObserver } from '../src/index';
+import { createUiPrompt } from './createUiPrompt';
 
-// hacky github way to handle instance state. Using current InstallPwaButton instance (this) as key
+// github way to handle instance state thats not related attributes.
+// Using current InstallPwaButton instance (this) as key
 const state = new WeakMap();
 
 export class InstallPwaButton extends HTMLElement {
@@ -20,7 +22,7 @@ export class InstallPwaButton extends HTMLElement {
     this.setAttribute('hidden', '');
     this.addEventListener('click', this.onInstallClick);
 
-    addInstallAvailableObserver((data) => this.updateLocalData(data));
+    addInstallAvailableObserver((event) => this.updateLocalData(event));
   }
 
   disconnectedCallback() {
@@ -29,13 +31,13 @@ export class InstallPwaButton extends HTMLElement {
     const localState = state.get(this);
     localState.installEvent = null;
 
-    removeInstallAvailableObserver((data) => this.updateLocalData(data));
+    removeInstallAvailableObserver((event) => this.updateLocalData(event));
   }
 
-  updateLocalData(data) {
-    if (data) {
+  updateLocalData(event) {
+    if (event) {
       const localState = state.get(this);
-      localState.installEvent = data;
+      localState.installEvent = event;
       this.removeAttribute('hidden');
     } else {
       this.setAttribute('hidden', '');
@@ -46,14 +48,18 @@ export class InstallPwaButton extends HTMLElement {
     if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'A') {
       return;
     }
-    const { installEvent } = state.get(this);
-
-    installEvent.prompt();
-    const { outcome } = await installEvent.userChoice;
-    if (outcome === 'accepted') {
-      // this.setAttribute('hidden', '');
-      console.log();
-    }
+    createUiPrompt()
+      .then(() => {
+        const { installEvent } = state.get(this);
+        installEvent.prompt();
+        return installEvent.userChoice;
+      })
+      .then(({ outcome }) => {
+        if (outcome === 'accepted') {
+          // installed
+        }
+      })
+      .catch((err) => console.log(err));
   }
 }
 
