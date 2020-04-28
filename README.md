@@ -1,7 +1,8 @@
 # pwa-helpers
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/5fa67289-f59c-429d-9029-dd220266c629/deploy-status)](https://app.netlify.com/sites/pwa-helper-demo/deploys)
 
-PWA utility libary. This libary provides some function to help you get started in pwa creation.
+PWA utility libary. This libary provides some function to help you get started in pwa creation. Visit demo page [here](pwa-helper-demo.netlify.app)
 
 ### Installation
 
