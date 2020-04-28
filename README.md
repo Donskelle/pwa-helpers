@@ -14,7 +14,7 @@ npm i @donskelle/pwa-helpers
 - Your Web App need to meet the pwa critera.
   - Create Manifest
   - Create and init service worker
-  - Lookup minimal requirements in [demo](../blob/master/demo)
+  - Lookup minimal requirements in [demo folder](https://github.com/Donskelle/pwa-helpers/tree/master/demo)
 
 #### Manifest
 
