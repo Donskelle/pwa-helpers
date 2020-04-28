@@ -4,13 +4,14 @@
   "description": "git packages test",
   "module": "src/index.js",
   "scripts": {
-    "start": "npx es-dev-server",
-    "size": "npx size-limit",
+    "start": "npx http-server dist",
+    "build": "rollup -c",
+    "size": "size-limit",
     "size-build": "echo 'no build'",
-    "lint": "npx eslint src",
-    "lint:fix": "npx prettier --write src && npx eslint --fix src",
-    "release": "npx release-it",
-    "test": "npx jest"
+    "lint": "eslint src",
+    "lint:fix": "prettier --write src && eslint --fix src",
+    "release": "release-it",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,8 @@
   },
   "homepage": "https://github.com/Donskelle/pwa-helpers#readme",
   "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
     "@release-it/conventional-changelog": "^1.1.2",
     "@size-limit/preset-big-lib": "^4.4.5",
     "auto-changelog": "^2.0.0",
@@ -38,7 +41,12 @@
     "lint-staged": "^10.1.6",
     "prettier": "^2.0.4",
     "release-it": "^13.5.4",
-    "service-worker-mock": "^2.0.5",
+    "rollup": "^2.7.3",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-cpy": "^2.0.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-workbox": "^5.0.1",
     "size-limit": "^4.4.5"
   },
   "release-it": {
@@ -68,5 +76,8 @@
       "npx prettier --write",
       "npx eslint --fix"
     ]
+  },
+  "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.9.0"
   }
 }

@@ -27,7 +27,7 @@
       }
     },
     {
-      "files": ["demo/**"],
+      "files": ["public/**"],
       "rules": {
         "import/no-unresolved": "off",
         "import/extensions": "off"

@@ -12,13 +12,10 @@
         navigator.serviceWorker.register('./sw.js');
       }
     </script>
-    <script type="module">
-      import './pwa-install.js';
-    </script>
   </head>
   <body>
+    <h3>Menu</h3>
     <nav>
-      <h3>Menu</h3>
       <ul>
         <li>Home</li>
         <li>About</li>
@@ -70,10 +67,15 @@
     <hr />
     <footer>
       <h3>Footer</h3>
-      <pwa-install-button><button>Install</button></pwa-install-button>
+      <pwa-install-button>
+        <button>Install</button>
+      </pwa-install-button>
     </footer>
     <script type="module">
-      import { setupInstallListener } from 'https://unpkg.com/@donskelle/pwa-helpers/src/index.js?module';
+      import './pwa-install.js';
+    </script>
+    <script type="module">
+      import { setupInstallListener } from './index.js';
 
       setupInstallListener();
     </script>
