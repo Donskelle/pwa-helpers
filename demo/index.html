@@ -6,55 +6,15 @@
     <title>PWA test</title>
     <link rel="manifest" href="./manifest.json" />
     <link rel="stylesheet" href="https://unpkg.com/98.css" />
+    <link rel="stylesheet" href="style.css" />
     <script>
       if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker
-            .register('./sw.js')
-            .then(() => {
-              console.log('Service worker registered :-)');
-            })
-            .catch(() => {
-              console.log('Service worker not registered :-(');
-            });
-        });
+        navigator.serviceWorker.register('./sw.js');
       }
     </script>
-    <style>
-      body {
-        background: #c0c0c0;
-        font-family: 'Pixelated MS Sans Serif', Arial;
-        -webkit-font-smoothing: none;
-      }
-
-      #lightbox {
-        position: fixed;
-        height: 100vh;
-        width: 100vw;
-        top: 0;
-        left: 0;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      #lightbox .window {
-        animation-name: opened;
-        animation-duration: 250ms;
-      }
-
-      @keyframes opened {
-        from {
-          transform: scale(0.8, 0.8);
-          opacity: 0.4;
-        }
-        to {
-          transform: scale(1, 1);
-          opacity: 1;
-        }
-      }
-    </style>
+    <script type="module">
+      import './pwa-install.js';
+    </script>
   </head>
   <body>
     <nav>
@@ -67,24 +27,51 @@
       </ul>
     </nav>
     <pwa-install-button>
-      Download as App
-      <ul class="tree-view">
-        <li>Offline</li>
-        <li></li>
-        <li>We want in here</li>
-      </ul>
       <button>Install</button>
     </pwa-install-button>
     <hr />
+    <h3>Content</h3>
     <div class="content">
-      <h3>Content</h3>
+      <div class="window" style="width: 300px">
+        <div class="title-bar">
+          <div class="title-bar-text">A Window With Stuff In It</div>
+          <div class="title-bar-controls">
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur, suscipit voluptates cum harum quaerat amet consequuntur, odit magnam voluptatibus aliquam vero minima ad atque eum similique sit ab minus expedita!</p>
+        </div>
+      </div>
+      <div class="window" style="width: 300px">
+        <div class="title-bar">
+          <div class="title-bar-text">A Window With Stuff In It</div>
+          <div class="title-bar-controls">
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non provident quo voluptatibus quia ut sequi eveniet inventore modi, laudantium pariatur quos quisquam a, explicabo consectetur velit maiores voluptatem dignissimos dicta.</p>
+        </div>
+      </div>
+      <div class="window" style="width: 300px">
+        <div class="title-bar">
+          <div class="title-bar-text">A Window With Stuff In It</div>
+          <div class="title-bar-controls">
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio eaque dignissimos minus, velit nisi dolore suscipit mollitia exercitationem, earum reprehenderit unde quae assumenda consectetur, dolorum dolorem itaque enim placeat et?</p>
+        </div>
+      </div>
+      </div>
     </div>
     <hr />
     <footer>
       <h3>Footer</h3>
       <pwa-install-button><button>Install</button></pwa-install-button>
     </footer>
-    <script src="./pwa-install.js" type="module"></script>
     <script type="module">
       import { setupInstallListener } from 'https://unpkg.com/@donskelle/pwa-helpers/src/index.js?module';
 

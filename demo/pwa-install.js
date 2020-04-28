@@ -55,9 +55,11 @@ export class InstallPwaButton extends HTMLElement {
       'Install Windows 98',
       `
       <ul>
-        <li>Offline</li>
-        <li>No other features</li>
-        <li>but it works offline</li>
+        <li>No Features</li>
+        <li>No Offline=</li>
+        <li>No Cache</li>
+        <li>No Updates</li>
+        <li>Just a regular Website without Install Banners</li>
       </ul>
       `
     )

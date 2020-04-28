@@ -1,0 +1,45 @@
+body {
+  background: #c0c0c0;
+  font-family: 'Pixelated MS Sans Serif', Arial;
+  -webkit-font-smoothing: none;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.content .window {
+  margin-bottom: 10px;
+}
+
+#lightbox {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#lightbox .window {
+  animation-name: opened;
+  animation-duration: 250ms;
+
+  max-width: 56em;
+}
+
+@keyframes opened {
+  from {
+    transform: scale(0.8, 0.8);
+    opacity: 0.4;
+  }
+  to {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
