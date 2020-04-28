@@ -84,9 +84,9 @@
       <h3>Footer</h3>
       <pwa-install-button><button>Install</button></pwa-install-button>
     </footer>
-    <script src="pwa-install.js" type="module"></script>
+    <script src="./pwa-install.js" type="module"></script>
     <script type="module">
-      import { setupInstallListener } from '../src/index.js';
+      import { setupInstallListener } from 'https://unpkg.com/@donskelle/pwa-helpers/src/index.js?module';
 
       setupInstallListener();
     </script>

@@ -1,4 +1,4 @@
-import { idleFramePromise } from '../src/idleFrame';
+import { idleFramePromise } from 'https://unpkg.com/@donskelle/pwa-helpers/src/index.js?module';
 /**
  * Create beautiful ui prompt
  * @param {String} content

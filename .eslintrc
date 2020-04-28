@@ -25,6 +25,13 @@
         "jest/prefer-to-have-length": "warn",
         "jest/valid-expect": "error"
       }
+    },
+    {
+      "files": ["demo/**"],
+      "rules": {
+        "import/no-unresolved": "off",
+        "import/extensions": "off"
+      }
     }
   ]
 }

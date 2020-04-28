@@ -1,4 +1,7 @@
-import { addInstallAvailableObserver, removeInstallAvailableObserver } from '../src/index';
+import {
+  addInstallAvailableObserver,
+  removeInstallAvailableObserver,
+} from 'https://unpkg.com/@donskelle/pwa-helpers/src/index.js?module';
 import { createUiPrompt } from './createUiPrompt';
 
 // github way to handle instance state thats not related attributes.
