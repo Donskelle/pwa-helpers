@@ -1,4 +1,0 @@
-- background sync > 10 mb
-- caches
-    - window.caches
-    - sessionStorage
