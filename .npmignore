@@ -1,9 +1,12 @@
 .github
 docs
 demo
+dev
 config
 .eslintrc
 .eslintignore
+.size-limit.json
 prettier.config.js
+netlify.toml
 jest.config.js
 es-dev-server.config.js
