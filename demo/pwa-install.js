@@ -44,11 +44,20 @@ export class InstallPwaButton extends HTMLElement {
     }
   }
 
-  async onInstallClick(e) {
+  onInstallClick(e) {
     if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'A') {
       return;
     }
-    createUiPrompt()
+    createUiPrompt(
+      'Install Windows 98',
+      `
+      <ul>
+        <li>Offline</li>
+        <li>No other features</li>
+        <li>but it works offline</li>
+      </ul>
+      `
+    )
       .then(() => {
         const { installEvent } = state.get(this);
         installEvent.prompt();
