@@ -2,7 +2,7 @@ import {
   addInstallAvailableObserver,
   removeInstallAvailableObserver,
 } from 'https://unpkg.com/@donskelle/pwa-helpers/src/index.js?module';
-import { createUiPrompt } from './createUiPrompt';
+import { createUiPrompt } from './createUiPrompt.js';
 
 // github way to handle instance state thats not related attributes.
 // Using current InstallPwaButton instance (this) as key
