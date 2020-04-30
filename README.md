@@ -20,11 +20,12 @@ npm i @donskelle/pwa-helpers
 
 #### Manifest
 
-Lookup manifest properties [here](https://developer.mozilla.org/en-US/docs/Web/Manifest) or use this [generator](https://app-manifest.firebaseapp.com/)
+Lookup manifest properties [here](https://developer.mozilla.org/en-US/docs/Web/Manifest) or use this [generator](https://app-manifest.firebaseapp.com/).
 
 Some examples of manifest:
 
 - Tinder [manifest.json](https://tinder.com/manifest.json)
+- Starbucks [manifest.json](https://app.starbucks.com/manifest.json)
 - Spotify https://open.spotify.com/ Manifest is hashed so lookup by inspecting network tab
 - Alibaba https://www.alibaba.com/ Manifest is a/b tested. Lookup in network tab
 

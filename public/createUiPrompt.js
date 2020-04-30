@@ -64,8 +64,7 @@ const createUiPrompt = (title = '', content = '') =>
                   accept();
                   break;
                 default:
-                  lightboxContainer.remove();
-                  reject();
+                  deny();
                   break;
               }
             } else if (target.ariaLabel) {
