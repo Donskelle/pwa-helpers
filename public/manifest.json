@@ -1,7 +1,7 @@
 {
   "name": "PWA Helpers",
   "short_name": "PWA Helpers",
-  "theme_color": "#c0c0c0",
+  "theme_color": "#0c40a9",
   "background_color": "#c0c0c0",
   "display": "standalone",
   "orientation": "portrait",
