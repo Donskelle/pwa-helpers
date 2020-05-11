@@ -26,6 +26,7 @@ Some examples of manifest:
 
 - Tinder [manifest.json](https://tinder.com/manifest.json)
 - Starbucks [manifest.json](https://app.starbucks.com/manifest.json)
+- About You [manifest.json](https://m.aboutyou.de/manifest.json)
 - Spotify https://open.spotify.com/ Manifest is hashed so lookup by inspecting network tab
 - Alibaba https://www.alibaba.com/ Manifest is a/b tested. Lookup in network tab
 
