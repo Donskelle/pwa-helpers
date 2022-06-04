@@ -1,5 +1,6 @@
 {
   "name": "PWA Helpers",
+  "description": "Little PWA Demo",
   "short_name": "PWA Helpers",
   "theme_color": "#0c40a9",
   "background_color": "#c0c0c0",

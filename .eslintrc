@@ -1,37 +1,18 @@
 {
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
   "env": {
-    "browser": true
+    "browser": true,
+    "node": true
   },
-  "extends": ["airbnb-base", "prettier"],
   "rules": {
-    "consistent-return": "off",
-    "import/prefer-default-export": "off",
-    "no-console": "off",
-    "func-names": "off",
-    "no-process-exit": "off",
-    "objec,t-shorthand": "off"
-  },
-  "overrides": [
-    {
-      "files": ["**/**test**.js"],
-      "env": {
-        "jest": true
-      },
-      "plugins": ["jest"],
-      "rules": {
-        "jest/no-disabled-tests": "warn",
-        "jest/no-focused-tests": "error",
-        "jest/no-identical-title": "error",
-        "jest/prefer-to-have-length": "warn",
-        "jest/valid-expect": "error"
-      }
-    },
-    {
-      "files": ["public/**"],
-      "rules": {
-        "import/no-unresolved": "off",
-        "import/extensions": "off"
-      }
-    }
-  ]
+    "prettier/prettier": "error"
+  }
 }

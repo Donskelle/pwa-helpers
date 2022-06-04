@@ -1,3 +1,19 @@
+/** PWA Styles */
+.pwaContent,
+.pwaInlineContent {
+  display: none;
+}
+
+@media all and (display-mode: standalone), (display-mode: minimal-ui), (display-mode: fullscreen) {
+  .pwaInlineContent {
+    display: inline;
+  }
+  .pwaBlockContent {
+    display: block;
+  }
+}
+
+
 body {
   background: #c0c0c0;
   font-family: 'Pixelated MS Sans Serif', Arial;

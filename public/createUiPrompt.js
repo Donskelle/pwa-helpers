@@ -1,17 +1,18 @@
-import { idleFramePromise } from './index.js';
+import { delayPromise } from '../src/index.ts';
 /**
  * Create beautiful ui prompt
+ * @param {String} title
  * @param {String} content
- * @returns {Promise}
+ * @returns {Promise} resolve if clicked ok, reject if clicked cancel
  */
 const createUiPrompt = (title = '', content = '') =>
   new Promise((resolve, reject) => {
     let lightboxContainer = window.lightbox;
-    if (lightboxContainer) {
-      lightboxContainer.remove();
-    } else {
+    if (!lightboxContainer) {
       lightboxContainer = document.createElement('div');
       lightboxContainer.id = 'lightbox';
+    } else {
+      lightboxContainer.remove();
     }
 
     lightboxContainer.innerHTML = `
@@ -31,16 +32,16 @@ const createUiPrompt = (title = '', content = '') =>
           ${content}
         </div>
         <section style="display: flex; justify-content: flex-end">
-        <button>OK</button>
-        <button>Cancel</button>
+          <button>OK</button>
+          <button>Cancel</button>
         </section>
       </div>
     `;
 
-    idleFramePromise()
+    delayPromise()
       .then(() => {
         document.body.append(lightboxContainer);
-        return idleFramePromise;
+        return delayPromise();
       })
       .then(() => {
         lightboxContainer.addEventListener('click', ({ target }) => {
@@ -53,28 +54,20 @@ const createUiPrompt = (title = '', content = '') =>
             resolve();
           };
 
-          if (target === lightboxContainer) {
+          if (target === lightboxContainer || target.ariaLabel === 'Close') {
             deny();
           }
 
-          if (target.tagName === 'BUTTON') {
-            if (target.innerText) {
-              switch (target.innerText) {
-                case 'OK':
-                  accept();
-                  break;
-                default:
-                  deny();
-                  break;
-              }
-            } else if (target.ariaLabel) {
-              switch (target.ariaLabel) {
-                case 'Close':
-                  deny();
-                  break;
-                default:
-                  break;
-              }
+          if (target.tagName === 'BUTTON' && target.innerText) {
+            switch (target.innerText.toUpperCase()) {
+              case 'OK':
+                accept();
+                break;
+              case 'CANCEL':
+                deny();
+                break;
+              default:
+                break;
             }
           }
         });

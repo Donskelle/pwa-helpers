@@ -1,8 +1,8 @@
 const createObserver = (initialData = null) => {
-  const observers = [];
-  let data = initialData;
+  const observers: ((...params: any) => void)[] = [];
+  let data: unknown = initialData;
 
-  const addObserver = (observer) => {
+  const addObserver = (observer: (...params: any[]) => void) => {
     observers.push(observer);
 
     if (data !== null) {
@@ -10,14 +10,14 @@ const createObserver = (initialData = null) => {
     }
   };
 
-  const removeObserver = (observer) => {
+  const removeObserver = (observer: (...params: any[]) => void) => {
     observers.push(observer);
   };
 
-  const updateData = (newData) => {
+  const updateData = (newData: any) => {
     data = newData;
     if (observers.length > 0) {
-      observers.forEach((observer) => observer(data));
+      observers.forEach((observer) => observer(newData));
     }
   };
 
