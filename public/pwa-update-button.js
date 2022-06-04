@@ -1,4 +1,4 @@
-import { updateFoundCallback } from '../src/index.ts';
+import { updateFoundCallback } from '@donskelle/pwa-helpers';
 import { createUiPrompt } from './createUiPrompt.js';
 
 // Github's way to handle instance state thats not related to attributes / properties.

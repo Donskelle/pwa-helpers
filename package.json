@@ -4,7 +4,7 @@
   "description": "git packages test",
   "module": "src/index.js",
   "scripts": {
-    "start": "npx http-server dist",
+    "start": "vite preview --port 8080",
     "build": "tsc && vite build",
     "watch": "vite --host",
     "lint": "eslint src --ext .ts",
@@ -27,7 +27,6 @@
   "homepage": "https://github.com/Donskelle/pwa-helpers#readme",
   "devDependencies": {
     "@release-it/conventional-changelog": "^1.1.2",
-    "@size-limit/preset-big-lib": "^4.4.5",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
     "auto-changelog": "^2.0.0",

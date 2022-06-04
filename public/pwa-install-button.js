@@ -1,4 +1,7 @@
-import { addInstallAvailableObserver, removeInstallAvailableObserver } from '../src/index.ts';
+import {
+  addInstallAvailableObserver,
+  removeInstallAvailableObserver,
+} from '@donskelle/pwa-helpers';
 import { createUiPrompt } from './createUiPrompt.js';
 
 // Github's way to handle instance state thats not related to attributes / properties.
