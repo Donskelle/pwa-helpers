@@ -1,7 +1,4 @@
-import {
-  addInstallAvailableObserver,
-  removeInstallAvailableObserver,
-} from '@donskelle/pwa-helpers';
+import { addInstallAvailableObserver, removeInstallAvailableObserver } from '../src';
 import { createUiPrompt } from './createUiPrompt.js';
 
 // Github's way to handle instance state thats not related to attributes / properties.
@@ -25,13 +22,14 @@ export class PwaInstallButton extends HTMLElement {
 
   connectedCallback() {
     this.addEventListener('click', this.onInstallClick);
-    addInstallAvailableObserver((event) => {
-      if (event) {
+
+    addInstallAvailableObserver((installEvent) => {
+      if (installEvent) {
         this.removeAttribute('hidden');
       } else {
         this.setAttribute('hidden', '');
       }
-      state.set(this, { installEvent: event });
+      state.set(this, { installEvent });
     });
   }
 

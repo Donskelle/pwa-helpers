@@ -1,4 +1,4 @@
-import { updateFoundCallback } from '@donskelle/pwa-helpers';
+import { updateFoundCallback } from '../src';
 import { createUiPrompt } from './createUiPrompt.js';
 
 // Github's way to handle instance state thats not related to attributes / properties.
@@ -26,9 +26,14 @@ export class PwaUpdateButton extends HTMLElement {
   connectedCallback() {
     this.addEventListener('click', this.startSwUpdate);
 
-    updateFoundCallback((cb) => {
-      this.removeAttribute('hidden');
-      state.set(this, { triggerUpdateCallback: cb });
+    updateFoundCallback((triggerUpdateAndReload) => {
+      if (triggerUpdateAndReload) {
+        this.removeAttribute('hidden');
+      } else {
+        this.removeAttribute('hidden', '');
+      }
+
+      state.set(this, { triggerUpdateAndReload });
     });
   }
 
@@ -44,7 +49,7 @@ export class PwaUpdateButton extends HTMLElement {
           `
     )
       .then(() => {
-        state.get(this).triggerUpdateCallback();
+        state.get(this).triggerUpdateAndReload();
       })
       .catch((err) => console.log(err));
   }
