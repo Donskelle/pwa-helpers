@@ -5,6 +5,9 @@ import { createUiPrompt } from './createUiPrompt.js';
 // Using current InstallPwaButton instance (this) as key
 const state = new WeakMap();
 
+/**
+ * Shows its content, if install is available.
+ */
 export class PwaInstallButton extends HTMLElement {
   static is() {
     return 'pwa-install-button';

@@ -19,18 +19,17 @@ npm i @donskelle/pwa-helpers
   - Create and init service worker
   - Lookup minimal requirements in [demo folder](https://github.com/Donskelle/pwa-helpers/tree/master/demo)
 
-#### Manifest`
+#### Manifest
 
 Lookup manifest properties [here](https://developer.mozilla.org/en-US/docs/Web/Manifest) or use this [generator](https://app-manifest.firebaseapp.com/).
 Be aware that manifest specification is not stable. So you should look it up [here](https://www.w3.org/TR/appmanifest/) and subscribe to changes, when you wanna use it in production.
 
 Some examples of manifest:
 
-- Tinder [manifest.json](https://tinder.com/manifest.json)
+- Tinder [manifest.json](https://tinder.com/manifest-en.json)
 - Starbucks [manifest.json](https://app.starbucks.com/manifest.json)
 - About You [manifest.json](https://m.aboutyou.de/manifest.json)
 - Spotify https://open.spotify.com/ Manifest is hashed so lookup by inspecting network tab
-- Alibaba https://www.alibaba.com/ Manifest is a/b tested. Lookup in network tab
 
 iOS still doens't support all fields of it manifest. You need set additional meta tags in head. Look them up here: https://firt.dev/notes/pwa-ios/#apple-non-standard-pwa-related-abilities
 
@@ -45,7 +44,7 @@ They will use workbox under the hood as well but hide some configuration.
 ```javascript
 import { idleFramePromise } from '@donskelle/pwa-helpers';
 
-const initFunctionNotBlockingMaintread = async () => {
+const initNotBlockingMaintreadTask = async () => {
   await idleFramePromise()
   heavyWork1();
   await idleFramePromise();

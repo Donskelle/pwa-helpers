@@ -1,7 +1,5 @@
 import { createObserver } from '../utils';
 
-const { addObserver, removeObserver, updateData } = createObserver();
-
 interface BeforeInstallPromptEvent extends Event {
   readonly platforms: string[];
   readonly userChoice: Promise<{
@@ -17,14 +15,19 @@ declare global {
   }
 }
 
+const { addObserver, removeObserver, updateData } = createObserver<
+  BeforeInstallPromptEvent | undefined
+>(undefined);
+
 const addInstallAvailableObserver = (cb: (event?: BeforeInstallPromptEvent) => void) =>
   addObserver(cb);
+
 /**
- * Prevent Pwa Install Prompt and lets you access install event and controll when fired
+ * NON STANDARD: Prevent Pwa Install Prompt and lets you access install event and controll when fired
  *
+ * Only supported by few browsers (got removed from manifest standart).
  * Relies on:
  * https://developer.mozilla.org/en-US/docs/Web/API/BeforeInstallPromptEvent
- * You can add callbacks and access install prompt via preventedInstallCallback
  */
 export const setupPreventPwaInstallPromptListener = () => {
   window.addEventListener('beforeinstallprompt', (e) => {
@@ -32,7 +35,7 @@ export const setupPreventPwaInstallPromptListener = () => {
     updateData(e);
     // Add listener to keep track of install availability
     e.userChoice.then(() => {
-      updateData(null);
+      updateData(undefined);
     });
   });
 };

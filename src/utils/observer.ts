@@ -1,21 +1,19 @@
-const createObserver = (initialData = null) => {
-  const observers: ((...params: any) => void)[] = [];
-  let data: unknown = initialData;
+const createObserver = <Type>(initialData: Type) => {
+  const observers: ((params: Type) => void)[] = [];
+  let currentObserverData: Type = initialData;
 
-  const addObserver = (observer: (...params: any[]) => void) => {
+  const addObserver = (observer: (data: Type) => void) => {
     observers.push(observer);
 
-    if (data !== null) {
-      observer(data);
-    }
+    observer(currentObserverData);
   };
 
-  const removeObserver = (observer: (...params: any[]) => void) => {
+  const removeObserver = (observer: (data: Type) => void) => {
     observers.push(observer);
   };
 
-  const updateData = (newData: any) => {
-    data = newData;
+  const updateData = (newData: Type) => {
+    currentObserverData = newData;
     if (observers.length > 0) {
       observers.forEach((observer) => observer(newData));
     }

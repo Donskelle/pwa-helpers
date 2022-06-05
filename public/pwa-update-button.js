@@ -6,7 +6,7 @@ import { createUiPrompt } from './createUiPrompt.js';
 const state = new WeakMap();
 
 /**
- * Displays its content
+ * Shows its content, if update is available
  */
 export class PwaUpdateButton extends HTMLElement {
   static is() {

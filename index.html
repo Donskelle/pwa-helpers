@@ -22,7 +22,7 @@
       <button>Install PWA</button>
     </pwa-install-button>
     <pwa-update-button>
-      <button>Force Update SW</button>
+      <button>Force Update SW and reload</button>
     </pwa-update-button>
     <hr />
     <h3>Content</h3>
@@ -36,9 +36,7 @@
         </div>
         <div class="window-body">
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur, suscipit
-            voluptates cum harum quaerat amet consequuntur, odit magnam voluptatibus aliquam vero
-            minima ad atque eum similique sit ab minus expedita!
+            <button class="installSW1">Install SW 1</button>
           </p>
         </div>
       </div>
@@ -50,25 +48,22 @@
           </div>
         </div>
         <div class="window-body">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non provident quo voluptatibus
-            quia ut sequi eveniet inventore modi, laudantium pariatur quos quisquam a, explicabo
-            consectetur velit maiores voluptatem dignissimos dicta.
-          </p>
+          <p><button class="installSW2">Install SW 2</button></p>
         </div>
       </div>
       <div class="window" style="width: 300px;">
         <div class="title-bar">
-          <div class="title-bar-text">A Window With Stuff In It</div>
+          <div class="title-bar-text">Styled by 98.css</div>
           <div class="title-bar-controls">
             <button aria-label="Close"></button>
           </div>
         </div>
         <div class="window-body">
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio eaque dignissimos
-            minus, velit nisi dolore suscipit mollitia exercitationem, earum reprehenderit unde quae
-            assumenda consectetur, dolorum dolorem itaque enim placeat et?
+            Check it out at
+            <a href="https://jdan.github.io/98.css/" target="_blank"
+              >https://jdan.github.io/98.css/</a
+            >
           </p>
         </div>
       </div>
@@ -80,22 +75,35 @@
         <button>Install PWA</button>
       </pwa-install-button>
       <pwa-update-button>
-        <button>Force Update SW</button>
+        <button>Force Update SW & reload</button>
       </pwa-update-button>
-
-      <button class="installSW1">Install SW 1</button>
-      <button class="installSW2">Install SW 2</button>
     </footer>
     <script>
-      // if ('serviceWorker' in navigator) {
-      //   navigator.serviceWorker.register('./sw.js');
-      // }
-      document.querySelector('.installSW1').addEventListener('click', () => {
-        navigator.serviceWorker.register('./sw.js');
-      });
-      document.querySelector('.installSW2').addEventListener('click', () => {
-        navigator.serviceWorker.register('./sw2.js');
-      });
+      const installSW1 = document.querySelector('.installSW1');
+      const installSW2 = document.querySelector('.installSW2');
+
+      const init = async () => {
+        const installSW1Promise = installSW1.addEventListener('click', () => {
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js');
+          }
+        });
+        const installSW2Promise = installSW2.addEventListener('click', () => {
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw2.js');
+          }
+        });
+
+        const reg = await navigator.serviceWorker.getRegistration();
+        if (reg) {
+          if (reg.active.scriptURL.includes('sw.js')) {
+            installSW1.style.display = 'none';
+          } else {
+            installSW2.style.display = 'none';
+          }
+        }
+      };
+      init();
     </script>
     <script type="module" src="/pwa-install-button.js"></script>
     <script type="module" src="/pwa-update-button.js"></script>
