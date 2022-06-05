@@ -1,7 +1,7 @@
 import { updateFoundCallback } from '../src';
 import { createUiPrompt } from './createUiPrompt.js';
 
-// Github's way to handle instance state thats not related to attributes / properties.
+// GitHub's way to handle instance state thats not related to attributes / properties.
 // Using current InstallPwaButton instance (this) as key
 const state = new WeakMap();
 

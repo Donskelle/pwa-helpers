@@ -1,7 +1,7 @@
 let savedUrlScope: string | undefined;
 
 /**
- * A common problem in Pwa's is navigating out of the pwa scope.
+ * A common problem in PWA's is navigating out of the pwa scope.
  * Your app will turn in browser without adress bar. This won't happen if you use target: _blank on all your anchor links
  * This function will listen for any anchor clicks and change the anchor to _blank, if it is a navigation which leaves your pwa scope and not opening new browser tab.
  *

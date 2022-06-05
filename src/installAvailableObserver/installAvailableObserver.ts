@@ -23,7 +23,7 @@ const addInstallAvailableObserver = (cb: (event?: BeforeInstallPromptEvent) => v
   addObserver(cb);
 
 /**
- * NON STANDARD: Prevent Pwa Install Prompt and lets you access install event and controll when fired
+ * NON STANDARD: Prevent PWA Install Prompt and lets you access install event and controll when fired
  *
  * Only supported by few browsers (got removed from manifest standart).
  * Relies on:
