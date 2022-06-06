@@ -1,8 +1,8 @@
 # pwa-helpers
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/5fa67289-f59c-429d-9029-dd220266c629/deploy-status)](https://app.netlify.com/sites/pwa-helper/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5fa67289-f59c-429d-9029-dd220266c629/deploy-status)](https://pwa-helper.netlify.app)
 
-PWA utility libary. This libary provides some function to help you get started in pwa creation. Visit demo page [here](https://pwa-helper.netlify.app).
+PWA utility library. This library provides some function to help you get started in pwa creation. Visit demo page [here](https://pwa-helper.netlify.app).
 No external dependencies
 
 ### Installation
@@ -11,14 +11,6 @@ No external dependencies
 npm i @donskelle/pwa-helpers
 ```
 
-### Requirements
-
-- Only support es module
-- Your Web App need to meet the pwa critera.
-  - Create Manifest
-  - Create and init service worker
-  - Lookup minimal requirements in [demo folder](https://github.com/Donskelle/pwa-helpers/tree/master/demo)
-
 #### Manifest
 
 Lookup manifest properties [here](https://developer.mozilla.org/en-US/docs/Web/Manifest) or use this [generator](https://app-manifest.firebaseapp.com/).
@@ -26,21 +18,17 @@ Be aware that manifest specification is not stable. So you should look it up [he
 
 Some examples of manifest:
 
-- Tinder [manifest.json](https://tinder.com/manifest.json)
+- Tinder [manifest.json](https://tinder.com/manifest-en.json)
 - Starbucks [manifest.json](https://app.starbucks.com/manifest.json)
 - About You [manifest.json](https://m.aboutyou.de/manifest.json)
 - Spotify https://open.spotify.com/ Manifest is hashed so lookup by inspecting network tab
-- Alibaba https://www.alibaba.com/ Manifest is a/b tested. Lookup in network tab
 
-Ios doens't support that file. You need set additional meta tags in head.
+iOS still doens't support all fields of it manifest. You need set additional meta tags in head. Look them up here: https://firt.dev/notes/pwa-ios/#apple-non-standard-pwa-related-abilities
 
 #### Service Worker
 
-Your service worker should be generated.
-
-This is because during build a hash of a all installed files get created and used to detect file changes.
-The service worker gets updated on every page visit but if the service worker wouldn't contain hashes, changes to other installed files wouldn't be detected.
-To generate a service worker goto [workbox](https://developers.google.com/web/tools/workbox) or lookup a libary based solution (e.g. create-react-app, vue-cli).
+Your service worker should be generated, if you want offline support or generally cache things.
+To generate a service worker goto [workbox](https://developers.google.com/web/tools/workbox) or lookup a library based solution (e.g. create-react-app, vue-cli).
 They will use workbox under the hood as well but hide some configuration.
 
 ### Example
@@ -48,7 +36,8 @@ They will use workbox under the hood as well but hide some configuration.
 ```javascript
 import { idleFramePromise } from '@donskelle/pwa-helpers';
 
-const initFunctionBlockingMaintread = async () => {
+const initNotBlockingMaintreadTask = async () => {
+  await idleFramePromise()
   heavyWork1();
   await idleFramePromise();
   heavyWork2();
@@ -67,22 +56,22 @@ function usePreventAnchorLeavingScopeClick(ref) {
   useEffect(() => {
     if (!ref.current) return;
 
-    return preventAnchorLeavingScopeClick(ref, 'tinder.com/app');
+    return preventAnchorLeavingScopeClick(ref.current, 'tinder.com/app');
   }, [ref]);
 }
 ```
 
 #### Vue
 
-```javascript
+```ts
 import { ref, watch } from 'vue';
 import { preventAnchorLeavingScopeClick } from '@donskelle/pwa-helpers';
 
-function usePreventAnchorLeavingScopeClick(target) {
-  let unSubscribeFunction = ref();
+function usePreventAnchorLeavingScopeClick(target: ref<HtmlElement | undefined>) {
+  let unSubscribeFunction = ref<() => void>();
 
   onMounted(() => {
-    unSubscribeFunction = target.value.addEventListener(type, listener, options);
+    unSubscribeFunction = preventAnchorLeavingScopeClick(target.value);
   });
 
   onUnmounted(() => {

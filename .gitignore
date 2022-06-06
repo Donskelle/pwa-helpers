@@ -72,7 +72,7 @@ typings/
 .env
 .env.test
 
-# parcel-bundler cache (https://parceljs.org/)
+# parcel-bundler cache (https://parceljs.org/) & Vitepress Cache
 .cache
 
 # Next.js build output
@@ -105,3 +105,5 @@ dist
 
 # in progress 
 docs/
+
+.temp

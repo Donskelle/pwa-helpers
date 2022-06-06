@@ -1,0 +1,1 @@
+export { isPWA } from './isPWA';

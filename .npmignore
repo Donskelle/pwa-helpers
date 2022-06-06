@@ -5,8 +5,9 @@ public
 config
 .eslintrc
 .eslintignore
-.size-limit.json
 prettier.config.js
 rollup.config.js
 netlify.toml
 jest.config.js
+.cache
+.temp
