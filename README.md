@@ -37,7 +37,6 @@ They will use workbox under the hood as well but hide some configuration.
 import { idleFramePromise } from '@donskelle/pwa-helpers';
 
 const initNotBlockingMaintreadTask = async () => {
-  await idleFramePromise()
   heavyWork1();
   await idleFramePromise();
   heavyWork2();
@@ -50,13 +49,13 @@ const initNotBlockingMaintreadTask = async () => {
 
 ```javascript
 import { useEffect } from 'react';
-import { preventAnchorLeavingScopeClick } from '@donskelle/pwa-helpers';
+import { preventLeavingPWAScope } from '@donskelle/pwa-helpers';
 
-function usePreventAnchorLeavingScopeClick(ref) {
+function preventLeavingPWAScope(ref) {
   useEffect(() => {
     if (!ref.current) return;
 
-    return preventAnchorLeavingScopeClick(ref.current, 'tinder.com/app');
+    return preventLeavingPWAScope(ref.current, 'tinder.com/app');
   }, [ref]);
 }
 ```
@@ -65,17 +64,15 @@ function usePreventAnchorLeavingScopeClick(ref) {
 
 ```ts
 import { ref, watch } from 'vue';
-import { preventAnchorLeavingScopeClick } from '@donskelle/pwa-helpers';
+import { preventLeavingPWAScope } from '@donskelle/pwa-helpers';
 
-function usePreventAnchorLeavingScopeClick(target: ref<HtmlElement | undefined>) {
+function preventLeavingPWAScope(target: ref<HtmlElement | undefined>) {
   let unSubscribeFunction = ref<() => void>();
 
   onMounted(() => {
-    unSubscribeFunction = preventAnchorLeavingScopeClick(target.value);
+    unSubscribeFunction.value = preventLeavingPWAScope(target.value);
   });
 
-  onUnmounted(() => {
-    if (unSubscribeFunction.value) unSubscribeFunction();
-  });
+  onUnmounted(() => unSubscribeFunction.value?.());
 }
 ```
