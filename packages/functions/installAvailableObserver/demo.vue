@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { isPWA } from '../isPWA/index.ts';
 import { setupPreventPwaInstallPromptListener, addInstallAvailableObserver } from './';
 
 interface BeforeInstallPromptEvent extends Event {
@@ -39,9 +38,6 @@ const triggerInstallPrompt = async () => {
 </script>
 
 <template>
-  <div v-if="isPWA()">
-    App is already shown as PWA
-  </div>
   <button v-if="!!isInstallAvailable" @click="triggerInstallPrompt">
     Install
   </button>
