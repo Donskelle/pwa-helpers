@@ -12,8 +12,8 @@ const Functions = [
     link: '/functions/injectPWAStyles/',
   },
   {
-    text: 'installAvailableObserver',
-    link: '/functions/installAvailableObserver/',
+    text: 'preventPWAInstallPromptObserver',
+    link: '/functions/preventPWAInstallPromptObserver/',
   },
   {
     text: 'isPWA',

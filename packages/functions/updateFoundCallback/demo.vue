@@ -3,8 +3,8 @@ import { ref, onMounted } from 'vue';
 import { updateFoundCallback } from './';
 
 const updateAvailable = ref<() => void>();
-const showInstallSW1 = ref<boolean>(false);
-const showInstallSW2 = ref<boolean>(false);
+const showInstallSW1 = ref(false);
+const showInstallSW2 = ref(false);
 
 const installSW = (url: string) => {
   if ('serviceWorker' in navigator) {
@@ -14,11 +14,11 @@ const installSW = (url: string) => {
 
 onMounted(async () => {
   updateFoundCallback((triggerUpdateAndReload) => {
-    console.log(triggerUpdateAndReload);
     updateAvailable.value = triggerUpdateAndReload;
   });
 
   const reg = await navigator.serviceWorker.getRegistration();
+
   showInstallSW1.value = !reg?.active?.scriptURL.includes('sw.js') ?? true;
   showInstallSW2.value = !reg?.active?.scriptURL.includes('sw2.js') ?? true;
 });
@@ -35,3 +35,9 @@ onMounted(async () => {
     Install SW 2
   </button>
 </template>
+
+<style scoped>
+button {
+  margin-right: 0.5rem;
+}
+</style>
