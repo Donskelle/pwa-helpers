@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "rootDir": "./src",
+    "rootDir": "./packages/functions",
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
@@ -15,11 +15,8 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "forceConsistentCasingInFileNames": true,
-    "types": ["vite/client", "jest"],
-    "paths": {
-      "@donskelle/pwa-helpers": ["./src/index.ts"]
-    }
+    "types": ["vite/client", "jest"]
   },
-  "include": ["src"],
+  "include": ["packages/functions"],
   "exclude": ["**/*.test.ts", "node_modules", "test/**", ".history/**"]
 }

@@ -9,3 +9,5 @@ prettier.config.js
 rollup.config.js
 netlify.toml
 jest.config.js
+.cache
+.temp

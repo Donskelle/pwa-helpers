@@ -11,14 +11,6 @@ No external dependencies
 npm i @donskelle/pwa-helpers
 ```
 
-### Requirements
-
-- Library only provides es module export
-- Your Web App need to meet the pwa criteria to use features of this library. See [pwa-criteria @ web.dev](https://web.dev/install-criteria/#criteria)
-  - Create Manifest
-  - Create and init service worker
-  - Lookup minimal requirements in [demo folder](https://github.com/Donskelle/pwa-helpers/tree/master/demo)
-
 #### Manifest
 
 Lookup manifest properties [here](https://developer.mozilla.org/en-US/docs/Web/Manifest) or use this [generator](https://app-manifest.firebaseapp.com/).

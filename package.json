@@ -6,11 +6,16 @@
   "scripts": {
     "start": "vite preview --port 8080",
     "build": "tsc && vite build",
+    "newBuild": "esno scripts/build.ts",
     "watch": "vite --host",
-    "lint": "eslint src --ext .ts",
-    "lint:fix": "prettier --write src && eslint --fix src --ext .ts",
+    "lint": "eslint .",
+    "lint:fix": "prettier --write src && nr lint --fix",
     "release": "release-it",
-    "test": "jest"
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "docs": "vitepress dev packages --open",
+    "docs:build": "vitepress build packages",
+    "docs:serve": "vitepress serve packages"
   },
   "repository": {
     "type": "git",
@@ -26,20 +31,24 @@
   },
   "homepage": "https://github.com/Donskelle/pwa-helpers#readme",
   "devDependencies": {
+    "@antfu/ni": "^0.16.2",
     "@release-it/conventional-changelog": "^1.1.2",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
+    "@vuepress/client": "2.0.0-beta.46",
     "auto-changelog": "^2.0.0",
     "eslint": "^8.17.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "esno": "^0.16.3",
     "husky": "^4.2.5",
     "jest": "^25.4.0",
     "lint-staged": "^10.1.6",
     "prettier": "^2.0.4",
     "release-it": "^13.5.4",
     "typescript": "^4.7.3",
-    "vite": "^2.9.9"
+    "vite": "^2.9.9",
+    "vitepress": "1.0.0-alpha.1"
   },
   "release-it": {
     "hooks": {
@@ -68,5 +77,8 @@
       "npx prettier --write",
       "npx eslint --fix"
     ]
+  },
+  "dependencies": {
+    "vue": "^3.2.36"
   }
 }
