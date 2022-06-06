@@ -4,10 +4,13 @@ layout: home
 features:
   - icon: ⚡️
     title: Simple & modern
+    details:
   - icon: 🖖
     title: No external dependencies
+    details:
   - icon: 🛠️
     title: Tries to keep your app as fast as possible
+    details:
 hero:
   name: PWA Helpers
   text: PWA utility library.

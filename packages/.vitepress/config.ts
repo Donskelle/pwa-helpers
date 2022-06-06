@@ -34,8 +34,8 @@ const Performance = [
     link: '/functions/perf/idle',
   },
   {
-    text: 'nextAvailableFrameCallback',
-    link: '/functions/perf/next',
+    text: 'delayCallback',
+    link: '/functions/perf/delay',
   },
 ];
 
@@ -116,5 +116,7 @@ export default {
       },
     ],
     ['link', { rel: 'manifest', href: '/manifest.json' }],
+    ['script', { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-GLDH45D9XS' }],
+    ['script', { async: '', src: '/initgoogle.js' }],
   ],
 };

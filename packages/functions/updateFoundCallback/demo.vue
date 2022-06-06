@@ -17,6 +17,7 @@ onMounted(async () => {
     updateAvailable.value = triggerUpdateAndReload;
   });
 
+  // Show hide install button depending if already active
   const reg = await navigator.serviceWorker.getRegistration();
 
   showInstallSW1.value = !reg?.active?.scriptURL.includes('sw.js') ?? true;
