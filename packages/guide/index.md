@@ -31,6 +31,8 @@ yarn i @donskelle/pwa-helpers
 
 #### manifest.json
 
+Create a manifest.json file in your published root directory.
+
 ```json
 {
   "name": "My App"
@@ -39,21 +41,24 @@ yarn i @donskelle/pwa-helpers
 
 #### index.html
 
+Reference created manifest file:
+
 ```html
 <head>
   ...
   <link rel="manifest" href="/manifest.json" />
   ...
+</head>
 ```
 
-## Minimal Service Worker
+## Service Worker
 
 #### service-worker.js
 
 ```js
 ```
 
-#### idnex.html
+#### index.html
 
 ```js
 ```

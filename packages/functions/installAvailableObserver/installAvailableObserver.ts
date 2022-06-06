@@ -19,11 +19,11 @@ const { addObserver, removeObserver, updateData } = createObserver<
   BeforeInstallPromptEvent | undefined
 >(undefined);
 
-const addInstallAvailableObserver = (cb: (event?: BeforeInstallPromptEvent) => void) =>
+export const addInstallAvailableObserver = (cb: (event?: BeforeInstallPromptEvent) => void) =>
   addObserver(cb);
 
 export const setupPreventPwaInstallPromptListener = () => {
-  window.addEventListener('beforeinstallprompt', (e) => {
+  window?.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     updateData(e);
     // Add listener to keep track of install availability
@@ -33,4 +33,4 @@ export const setupPreventPwaInstallPromptListener = () => {
   });
 };
 
-export { addInstallAvailableObserver, removeObserver as removeInstallAvailableObserver };
+export { removeObserver as removeInstallAvailableObserver };

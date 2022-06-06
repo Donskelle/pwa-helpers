@@ -1,11 +1,19 @@
 let isReloading = false;
 
-export const updateFoundCallback = async (cb: (triggerUpdate: () => void) => void) => {
+export const updateFoundCallback = async (cb: (triggerUpdateAndReload: () => void) => void) => {
   let newWorker: ServiceWorker | null = null;
 
   const skipWaiting = () => {
     if (!newWorker) return;
+
     newWorker.postMessage({ type: 'SKIP_WAITING' });
+
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (isReloading) return;
+
+      window.location.reload();
+      isReloading = true;
+    });
   };
 
   if ('serviceWorker' in navigator) {
@@ -25,12 +33,5 @@ export const updateFoundCallback = async (cb: (triggerUpdate: () => void) => voi
         cb(skipWaiting);
       }
     }
-
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (isReloading) return;
-
-      window.location.reload();
-      isReloading = true;
-    });
   }
 };

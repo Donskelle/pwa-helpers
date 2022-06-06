@@ -3,14 +3,14 @@ layout: home
 
 features:
     - icon: ⚡️
-      title: Simple, modern
+      title: Simple & modern
       details: Lorem ipsum...
     - icon: 🖖
       title: No external dependencies
       details: Lorem ipsum...
     - icon: 🛠️
-      title: Simple and minimal, always
-      details: Lorem ipsum...
+      title: Best performance
+      details: Tries to keep your app as fast as possible
 hero:
   name: PWA Helpers
   text: PWA utility library.
