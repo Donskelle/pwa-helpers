@@ -1,15 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import { isPWA } from './';
-
-const pwaStatus = ref<boolean>(isPWA());
 </script>
 
 <template>
-  <div v-if="pwaStatus">
+  <div v-if="isPWA()">
     App is shown as PWA
   </div>
-  <div else>
+  <div v-else>
     App is not shown as PWA
   </div>
 </template>

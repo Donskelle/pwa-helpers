@@ -3,7 +3,8 @@
   padding: 2em;
   position: relative;
   margin: 16px -24px;
-  border-radius: 8px;
+  border-radius: 0px;
+  min-height: 200px;
 }
 
 .demo-source-link {
@@ -34,7 +35,7 @@
 @media (min-width: 640px) {
   .demo {
     margin: 16px 0;
-    border-radius: 0;
+    border-radius: 8px;
   }
 }
 @media (min-width: 720px) {

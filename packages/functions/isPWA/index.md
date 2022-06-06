@@ -2,6 +2,8 @@
 
 Check if website is displayed as pwa.
 
+There is no way to check, if website is installed as pwa.
+
 ## Usage
 
 ```ts
