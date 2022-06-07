@@ -24,7 +24,7 @@ npm i @donskelle/pwa-helpers
 #### Yarn
 
 ```bash
-yarn i @donskelle/pwa-helpers
+yarn add @donskelle/pwa-helpers
 ```
 
 ## Minimal Manifest
