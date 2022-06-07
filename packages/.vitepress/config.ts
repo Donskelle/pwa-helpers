@@ -46,6 +46,11 @@ export default {
   lastUpdated: true,
   themeConfig: {
     logo: '/rocket.svg',
+    editLink: {
+      repo: 'Donskelle/pwa-helpers',
+      branch: 'master',
+      dir: 'packages',
+    },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/donskelle/pwa-helpers' },
       { icon: 'twitter', link: 'https://twitter.com/zehecks' },
