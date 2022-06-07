@@ -1,10 +1,11 @@
 .demo {
   background: var(--vp-code-block-bg);
+  color: #fff;
   padding: 2em;
   position: relative;
   margin: 16px -24px;
   border-radius: 0px;
-  min-height: 200px;
+  min-height: 130px;
 }
 
 .demo-source-link {

@@ -20,8 +20,14 @@ onMounted(async () => {
   // Show hide install button depending if already active
   const reg = await navigator.serviceWorker.getRegistration();
 
-  showInstallSW1.value = !reg?.active?.scriptURL.includes('sw.js') ?? true;
-  showInstallSW2.value = !reg?.active?.scriptURL.includes('sw2.js') ?? true;
+  showInstallSW1.value =
+    reg?.active?.scriptURL.includes('sw.js') || reg?.waiting?.scriptURL.includes('sw.js')
+      ? false
+      : true;
+  showInstallSW2.value =
+    reg?.active?.scriptURL.includes('sw2.js') || reg?.waiting?.scriptURL.includes('sw2.js')
+      ? false
+      : true;
 });
 </script>
 
@@ -29,10 +35,26 @@ onMounted(async () => {
   <button v-if="!!updateAvailable" @click="() => updateAvailable?.()">
     Update App and reload
   </button>
-  <button v-if="showInstallSW1" @click="() => installSW('/sw.js')">
+  <button
+    v-if="showInstallSW1"
+    @click="
+      () => {
+        installSW('/sw.js');
+        showInstallSW1 = false;
+      }
+    "
+  >
     Install SW 1
   </button>
-  <button v-if="showInstallSW2" @click="() => installSW('/sw2.js')">
+  <button
+    v-if="showInstallSW2"
+    @click="
+      () => {
+        installSW('/sw2.js');
+        showInstallSW2 = false;
+      }
+    "
+  >
     Install SW 2
   </button>
 </template>

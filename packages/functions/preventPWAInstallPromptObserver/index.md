@@ -8,6 +8,17 @@ Only supported by few browsers. Got removed from manifest standard.
 Relies on:
 https://developer.mozilla.org/en-US/docs/Web/API/BeforeInstallPromptEvent
 
+<script setup>
+import Demo from './demo.vue'
+</script>
+
+## Demo
+
+<DemoContainer>
+  <p class="demo-source-link"><a href="https://github.com/donskelle/pwa-helpers/tree/master/packages/functions/installAvailableObserver/demo.vue" targat="blank">source</a></p>
+  <Demo/>
+</DemoContainer>
+
 ## Usage
 
 First Setup the observer to prevent Browser install prompt and save the event to use it later.
@@ -39,14 +50,3 @@ export { removePreventPWAInstallPromptObserver } from '@donskelle/pwa-helpers';
 
 removePreventPWAInstallPromptObserver();
 ```
-
-<script setup>
-import Demo from './demo.vue'
-</script>
-
-## Demo
-
-<DemoContainer>
-  <p class="demo-source-link"><a href="https://github.com/donskelle/pwa-helpers/tree/master/packages/functions/installAvailableObserver/demo.vue" targat="blank">source</a></p>
-  <Demo/>
-</DemoContainer>
