@@ -3,10 +3,7 @@
 ## Usage
 
 ```ts
-export {
-  idleFrameCallback,
-  idleFramePromise,
-} from '@donskelle/pwa-helpers';
+export { idleFrameCallback, idleFramePromise } from '@donskelle/pwa-helpers';
 
 idleFrameCallback();
 idleFramePromise();

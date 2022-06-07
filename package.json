@@ -9,7 +9,7 @@
     "newBuild": "esno scripts/build.ts",
     "watch": "vite --host",
     "lint": "eslint .",
-    "lint:fix": "prettier --write src && nr lint --fix",
+    "lint:fix": "prettier --write packages && nr lint --fix",
     "release": "release-it",
     "typecheck": "tsc --noEmit",
     "test": "jest",
@@ -74,8 +74,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "npx prettier --write",
-      "npx eslint --fix"
+      "nr lint:fix"
     ]
   },
   "dependencies": {
