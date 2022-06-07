@@ -57,3 +57,9 @@ const triggerInstallPrompt = async () => {
     </p>
   </div>
 </template>
+
+<style scoped>
+  p:first-child {
+    margin-top: 0;
+  }
+</style>

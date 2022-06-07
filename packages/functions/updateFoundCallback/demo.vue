@@ -2,10 +2,11 @@
 import { ref, onMounted } from 'vue';
 import { updateFoundCallback } from './';
 
-const updateAvailable = ref<() => void>();
+const triggerUpdateAndReload = ref<() => void>();
 const showInstallSW1 = ref(false);
 const showInstallSW2 = ref(false);
 
+// Install different Service Worker to trigger update
 const installSW = (url: string) => {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register(url, { scope: '/' });
@@ -13,13 +14,12 @@ const installSW = (url: string) => {
 };
 
 onMounted(async () => {
-  updateFoundCallback((triggerUpdateAndReload) => {
-    updateAvailable.value = triggerUpdateAndReload;
+  updateFoundCallback((_triggerUpdateAndReload) => {
+    triggerUpdateAndReload.value = _triggerUpdateAndReload;
   });
 
   // Show hide install button depending if already active
   const reg = await navigator.serviceWorker.getRegistration();
-
   showInstallSW1.value =
     reg?.active?.scriptURL.includes('sw.js') || reg?.waiting?.scriptURL.includes('sw.js')
       ? false
@@ -32,8 +32,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <button v-if="!!updateAvailable" @click="() => updateAvailable?.()">
-    Update App and reload
+  <button v-if="!!triggerUpdateAndReload" @click="() => triggerUpdateAndReload?.()">
+    Activate installed Service Worker and reload page
   </button>
   <button
     v-if="showInstallSW1"
@@ -44,7 +44,7 @@ onMounted(async () => {
       }
     "
   >
-    Install SW 1
+    Install Service Worker 1
   </button>
   <button
     v-if="showInstallSW2"
@@ -55,7 +55,7 @@ onMounted(async () => {
       }
     "
   >
-    Install SW 2
+    Install Service Worker 2
   </button>
 </template>
 
