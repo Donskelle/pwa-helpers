@@ -29,17 +29,31 @@ yarn i @donskelle/pwa-helpers
 
 ## Minimal Manifest
 
-#### manifest.json
+#### `manifest.json`
 
-Create a manifest.json file in your published root directory.
+Create a `manifest.json` file in your published root directory.
 
 ```json
 {
-  "name": "My App"
+  "name": "My App",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
 ```
 
-#### index.html
+#### `index.html`
 
 Reference created manifest file:
 
@@ -53,12 +67,38 @@ Reference created manifest file:
 
 ## Service Worker
 
-#### service-worker.js
+Create a `service-worker.js` file in your published root directory.
+
+#### `service-worker.js`
 
 ```js
+/* START Service Worker install avaiable Requirements */
+// Only needed for chromium based browser (https://web.dev/install-criteria/#criteria)
+// Experiment to remove: https://groups.google.com/a/chromium.org/g/blink-dev/c/0uhGufIFLeo/m/qp9QKQXoEwAJ?utm_medium=email&utm_source=footer&pli=1
+self.addEventListener('fetch', () => {});
+/* END Service Worker install avaiable Requirements */
+
+/* Make Service worker updatable */
+self.addEventListener('message', (event) => {
+  if (event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
+self.addEventListener('activate', (event) => {
+  event.waitUntil(clients.claim());
+});
 ```
 
-#### index.html
+#### `index.html`
+
+Reference created service worker file:
 
 ```js
+<head>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+    }
+  </script>
+</head>
 ```
