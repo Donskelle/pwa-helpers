@@ -10,13 +10,16 @@ https://developer.mozilla.org/en-US/docs/Web/API/BeforeInstallPromptEvent
 
 <script setup>
 import Demo from './demo.vue'
+import Supported from './supported.vue'
 </script>
 
 ## Demo
 
 <DemoContainer>
   <p class="demo-source-link"><a href="https://github.com/donskelle/pwa-helpers/tree/master/packages/functions/installAvailableObserver/demo.vue" targat="blank">source</a></p>
-  <Demo/>
+  <Supported>
+    <Demo/>
+  </Supported>
 </DemoContainer>
 
 ## Usage

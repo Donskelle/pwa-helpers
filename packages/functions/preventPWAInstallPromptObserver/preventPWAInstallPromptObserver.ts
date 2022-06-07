@@ -10,6 +10,7 @@ interface BeforeInstallPromptEvent extends Event {
 }
 
 declare global {
+  const BeforeInstallPromptEvent: BeforeInstallPromptEvent | undefined;
   interface WindowEventMap {
     beforeinstallprompt: BeforeInstallPromptEvent;
   }

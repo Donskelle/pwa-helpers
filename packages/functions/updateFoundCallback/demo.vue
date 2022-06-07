@@ -33,7 +33,7 @@ onMounted(async () => {
 
 <template>
   <button v-if="!!triggerUpdateAndReload" @click="() => triggerUpdateAndReload?.()">
-    Activate installed Service Worker and reload page
+    Activate installed Service Worker and reload
   </button>
   <button
     v-if="showInstallSW1"

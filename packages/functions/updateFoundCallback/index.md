@@ -5,7 +5,7 @@ Setups Listener for Service Worker Update.
 Calls the callback function, when another service worker is ready to be activated. Your callback gets another function as parameter to start the update progress.
 
 When you trigger the update progress, a message with data type `SKIP_WAITING` will be send to the Service Worker to force skipWaiting execution in sw.
-Also its setting up a listener for active sw change, when this happens a reload will be triggered to potenital problems between installed files in different version.
+Also its setting up a listener for active sw change, when this happens a reload will be triggered to avoid potenital problems between installed files in different version.
 
 Setup handler in service worker manually by adding the following code:
 

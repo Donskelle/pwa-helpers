@@ -8,6 +8,10 @@
   min-height: 130px;
 }
 
+.demo > p {
+  margin-top: 0;
+}
+
 .demo-source-link {
   position: absolute;
   top: 0;
