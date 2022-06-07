@@ -46,6 +46,10 @@ export default {
   lastUpdated: true,
   themeConfig: {
     logo: '/rocket.svg',
+    editLink: {
+      pattern: 'https://github.com/Donskelle/pwa-helpers/edit/master/packages/:path',
+      text: 'Edit this page on GitHub',
+    },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/donskelle/pwa-helpers' },
       { icon: 'twitter', link: 'https://twitter.com/zehecks' },
