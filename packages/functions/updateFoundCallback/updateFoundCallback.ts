@@ -1,22 +1,18 @@
-let isReloading = false;
+let shouldReload = false;
 
-export const updateFoundCallback = async (cb: (triggerUpdateAndReload: () => void) => void) => {
+export const updateFoundCallback = async (
+  cb: (triggerUpdateAndReload: (options?: { reload: boolean }) => void) => void
+) => {
   let newWorker: ServiceWorker | null = null;
 
-  const skipWaiting = () => {
+  const skipWaiting = ({ reload }: { reload: boolean } = { reload: false }) => {
     if (!newWorker) return;
 
     newWorker.postMessage({ type: 'SKIP_WAITING' });
 
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (isReloading) return;
-
-      window.location.reload();
-      isReloading = true;
-    });
+    shouldReload = reload;
   };
-
-  if ('serviceWorker' in navigator) {
+  const initCurrentServiceWorker = async () => {
     const reg = await navigator.serviceWorker.getRegistration();
     if (reg) {
       reg.addEventListener('updatefound', () => {
@@ -33,5 +29,16 @@ export const updateFoundCallback = async (cb: (triggerUpdateAndReload: () => voi
         cb(skipWaiting);
       }
     }
-  }
+  };
+
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    initCurrentServiceWorker();
+
+    if (shouldReload) {
+      window.location.reload();
+      shouldReload = false;
+    }
+  });
+
+  initCurrentServiceWorker();
 };

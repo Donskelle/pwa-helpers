@@ -6,7 +6,13 @@ let savedUrlScope: string | undefined;
  * @param {object} element Optimal parameter to reduce watched elements. Otherwise it will listen on any click
  * @returns {function} function to remove added Listener
  */
-const preventLeavingPWAScope = (urlScope?: string, element = window) => {
+const preventLeavingPWAScope = ({
+  urlScope,
+  element = window,
+}: {
+  element?: HTMLElement | Window;
+  urlScope?: string;
+} = {}) => {
   const isAbsoluteUrl = (href: string) => /^(?:[a-z]+:)?\/\//i.test(href);
   const isAnchorElement = ({ tagName }: HTMLElement) => tagName === 'A';
   const hasHrefAbsoluteValue = ({ href }: HTMLAnchorElement) => href && isAbsoluteUrl(href);
@@ -20,7 +26,7 @@ const preventLeavingPWAScope = (urlScope?: string, element = window) => {
 
   const checks = [isAnchorElement, hasHrefAbsoluteValue, targetNotBlank, notInCurrentScope];
 
-  const checkAndPreventEvent = (event: MouseEvent) => {
+  const checkAndPreventEvent = (event: Event) => {
     const { target } = event;
 
     if (checks.every((fn) => fn(target as HTMLAnchorElement))) {

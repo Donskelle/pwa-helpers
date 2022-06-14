@@ -12,16 +12,16 @@ const Functions = [
     link: '/functions/injectPWAStyles/',
   },
   {
-    text: 'preventPWAInstallPromptObserver',
-    link: '/functions/preventPWAInstallPromptObserver/',
-  },
-  {
     text: 'isPWA',
     link: '/functions/isPWA/',
   },
   {
     text: 'preventLeavingPWAScope',
     link: '/functions/preventLeavingPWAScope/',
+  },
+  {
+    text: 'preventPWAInstallPromptObserver',
+    link: '/functions/preventPWAInstallPromptObserver/',
   },
   {
     text: 'updateFoundCallback',

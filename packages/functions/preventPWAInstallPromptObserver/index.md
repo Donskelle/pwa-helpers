@@ -16,7 +16,9 @@ import Supported from './supported.vue'
 ## Demo
 
 <DemoContainer>
-  <p class="demo-source-link"><a href="https://github.com/donskelle/pwa-helpers/tree/master/packages/functions/installAvailableObserver/demo.vue" targat="blank">source</a></p>
+  <p class="demo-source-link">
+    <a href="https://github.com/Donskelle/pwa-helpers/blob/master/packages/functions/preventPWAInstallPromptObserver/demo.vue" targat="blank">source</a>
+  </p>
   <Supported>
     <Demo/>
   </Supported>

@@ -7,22 +7,23 @@
   border-radius: 0px;
   min-height: 130px;
 }
-
-.demo > p {
-  margin-top: 0;
-}
-
-.demo-source-link {
+.demo .demo-source-link,
+.demo .demo-suppored-badge {
   position: absolute;
   top: 0;
-  right: 10px;
   z-index: 2;
   font-size: 12px;
   font-weight: 500;
   color: var(--vp-c-text-dark-3);
   transition: color 0.5s;
+  margin-top: 5px;
 }
-
+.demo-source-link {
+  right: 10px;
+}
+.demo-suppored-badge {
+  left: 10px;
+}
 .demo button {
   padding: 3px 15px;
   background-color: var(--vp-c-brand);

@@ -48,14 +48,14 @@ const triggerInstallPrompt = async () => {
   <button v-if="!!isInstallAvailable" @click="triggerInstallPrompt">
     Install
   </button>
-  <div v-else>
+  <template v-else>
     <p>
       Install prompt event was not send.
     </p>
     <p>
       Maybe it was send before this site setup a listener for it. Reload if thats the case.
     </p>
-  </div>
+  </template>
 </template>
 
 <style scoped></style>

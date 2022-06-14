@@ -1,5 +1,10 @@
 <template>
-  <slot v-if="isSupported"></slot>
+  <template v-if="isSupported">
+    <slot />
+    <p class="demo-suppored-badge">
+      beforeinstallprompt is supported
+    </p>
+  </template>
   <p v-else>
     Your browser doen't support that feature.
   </p>

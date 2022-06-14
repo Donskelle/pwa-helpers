@@ -2,20 +2,17 @@
 import { ref, onMounted } from 'vue';
 import { updateFoundCallback } from './';
 
-const triggerUpdateAndReload = ref<() => void>();
+const triggerUpdate = ref<(options?: { reload: boolean }) => void>();
 const showInstallSW1 = ref(false);
 const showInstallSW2 = ref(false);
 
 // Install different Service Worker to trigger update
 const installSW = (url: string) => {
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register(url, { scope: '/' });
-  }
+  navigator.serviceWorker.register(url, { scope: '/' });
 };
-
 onMounted(async () => {
-  updateFoundCallback((_triggerUpdateAndReload) => {
-    triggerUpdateAndReload.value = _triggerUpdateAndReload;
+  updateFoundCallback((_triggerUpdate) => {
+    triggerUpdate.value = _triggerUpdate;
   });
 
   // Show hide install button depending if already active
@@ -32,7 +29,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <button v-if="!!triggerUpdateAndReload" @click="() => triggerUpdateAndReload?.()">
+  <button v-if="!!triggerUpdate" @click="() => triggerUpdate?.({ reload: true })">
     Activate installed Service Worker and reload
   </button>
   <button

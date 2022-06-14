@@ -93,7 +93,7 @@ self.addEventListener('activate', (event) => {
 
 Reference created service worker file:
 
-```js
+```html
 <head>
   <script>
     if ('serviceWorker' in navigator) {
