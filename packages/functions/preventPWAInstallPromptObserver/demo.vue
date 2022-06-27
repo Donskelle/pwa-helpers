@@ -33,15 +33,15 @@ onMounted(() => {
 onUnmounted(() => removeObserver.value?.());
 
 const triggerInstallPrompt = async () => {
-  if (!isInstallAvailable.value) {
-    return;
-  }
+  if (!isInstallAvailable.value) return;
+  
   isInstallAvailable.value.prompt();
   const { outcome } = await isInstallAvailable.value.userChoice;
   if (outcome === 'accepted') {
     console.log('User accepted the install prompt');
   }
 };
+const reload = () => window.location.reload();
 </script>
 
 <template>
@@ -50,11 +50,26 @@ const triggerInstallPrompt = async () => {
   </button>
   <template v-else>
     <p>
-      Install prompt event was not send.
+      beforeinstallprompt was not send. Possible Reasons:
     </p>
-    <p>
-      Maybe it was send before this site setup a listener for it. Reload if thats the case.
-    </p>
+    <ul>
+      <li>
+        The Event was send before this page has setup a listener for it. <a href="#" @click="reload">Reload</a> if thats the case
+      </li>
+      <li>
+        The web app is already installed
+      </li>
+      <li>
+        Doens't meet the user engagement heuristics:
+        <ul>
+          <li>
+            The user needs to have clicked or tapped on the page at least once (at any time, even
+            during a previous page load)
+          </li>
+          <li>The user needs to have spent at least 30 seconds viewing the page (at any time)</li>
+        </ul>
+      </li>
+    </ul>
   </template>
 </template>
 

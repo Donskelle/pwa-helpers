@@ -30,12 +30,12 @@ const Functions = [
 ];
 const Performance = [
   {
-    text: 'idleFrameCallback',
-    link: '/functions/perf/idle',
-  },
-  {
     text: 'delayCallback',
     link: '/functions/perf/delay',
+  },
+  {
+    text: 'idleFrameCallback',
+    link: '/functions/perf/idle',
   },
 ];
 

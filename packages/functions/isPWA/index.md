@@ -1,8 +1,8 @@
 # isPWA
 
-Check if website is displayed as pwa.
+Check if website is displayed as PWA.
 
-There is no way to check, if website is installed as pwa.
+There is no way to check, if website is installed as PWA.
 
 <script setup>
 import Demo from './demo.vue'

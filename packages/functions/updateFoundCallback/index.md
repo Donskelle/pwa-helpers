@@ -4,8 +4,7 @@ Setups Listener for Service Worker Update.
 
 Calls the callback function, when another service worker is ready to be activated. Your callback gets another function as parameter to start the update progress.
 
-When you trigger the update progress, a message with data type `SKIP_WAITING` will be send to the Service Worker to force skipWaiting execution in sw.
-Also its setting up a listener for active sw change, when this happens a reload will be triggered to avoid potenital problems between installed files in different version.
+When you call the function, a message with data type `SKIP_WAITING` will be send to the Service Worker to force skipWaiting execution in sw. You can also setup a listener controlling Service Worker change, when this happens a reload will be triggered to avoid potential problems between installed files in different version.
 
 Setup handler in service worker manually by adding the following code:
 
@@ -33,8 +32,19 @@ import Demo from './demo.vue'
 
 ## Usage
 
+Setup Listener
 ```ts
 export { updateFoundCallback } from '@donskelle/pwa-helpers';
 
-updateFoundCallback();
+let callSkipWaiting;
+updateFoundCallback((cb: (options?: {reload: true}) => void) => {
+  callSkipWaiting = cb;
+});
 ```
+
+Display Banner or Button depending of callSkipWaiting is set and setup click listener to call callSkipWaiting
+```html
+<button v-if="!!callSkipWaiting" @click="() => callSkipWaiting({reload: true})">Install</button>
+```
+
+

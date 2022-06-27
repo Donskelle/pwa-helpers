@@ -12,7 +12,7 @@
 #### PNpM
 
 ```bash
-pnpm add @donskelle/pwa-helpers
+pnpm i @donskelle/pwa-helpers
 ```
 
 #### npm

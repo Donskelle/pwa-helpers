@@ -2,12 +2,17 @@
 import { ref, onMounted } from 'vue';
 import { updateFoundCallback } from './';
 
+enum InstallableServiceWorkers {
+  first = '/sw.js',
+  second = '/sw2.js',
+}
+
 const triggerUpdate = ref<(options?: { reload: boolean }) => void>();
 const showInstallSW1 = ref(false);
 const showInstallSW2 = ref(false);
 
 // Install different Service Worker to trigger update
-const installSW = (url: string) => {
+const installSW = (url: InstallableServiceWorkers) => {
   navigator.serviceWorker.register(url, { scope: '/' });
 };
 onMounted(async () => {
@@ -18,11 +23,13 @@ onMounted(async () => {
   // Show hide install button depending if already active
   const reg = await navigator.serviceWorker.getRegistration();
   showInstallSW1.value =
-    reg?.active?.scriptURL.includes('sw.js') || reg?.waiting?.scriptURL.includes('sw.js')
+    reg?.active?.scriptURL.includes(InstallableServiceWorkers.first) ||
+    reg?.waiting?.scriptURL.includes(InstallableServiceWorkers.first)
       ? false
       : true;
   showInstallSW2.value =
-    reg?.active?.scriptURL.includes('sw2.js') || reg?.waiting?.scriptURL.includes('sw2.js')
+    reg?.active?.scriptURL.includes(InstallableServiceWorkers.second) ||
+    reg?.waiting?.scriptURL.includes(InstallableServiceWorkers.second)
       ? false
       : true;
 });
@@ -36,7 +43,7 @@ onMounted(async () => {
     v-if="showInstallSW1"
     @click="
       () => {
-        installSW('/sw.js');
+        installSW(InstallableServiceWorkers.first);
         showInstallSW1 = false;
       }
     "
@@ -47,7 +54,7 @@ onMounted(async () => {
     v-if="showInstallSW2"
     @click="
       () => {
-        installSW('/sw2.js');
+        installSW(InstallableServiceWorkers.second);
         showInstallSW2 = false;
       }
     "
